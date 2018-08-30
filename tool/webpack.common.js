@@ -6,8 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isPro = nodeEnv === 'production';
 
-
-
+console.log(path.resolve(__dirname, '../node_modules'), '=====')
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.js'), //path.resolve(__dirname, '../dist')
@@ -15,7 +14,7 @@ module.exports = {
     // app: ['webpack/hot/dev-server','./src/index.js'], //webpack-hot-dev-server/client
   },
   output: {
-    filename: '[name].[hash].bundle.js',
+    filename: '[name].[hash:3].bundle.js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
@@ -38,11 +37,10 @@ module.exports = {
       },
       {
         test: /\.less$/,
+        exclude: /node_modules/,
         use: [{
           loader: 'style-loader',
-          options: {
-            sourceMap: true
-          }
+          options: {}
         }, {
           loader: 'css-loader',
           options: {
@@ -51,8 +49,24 @@ module.exports = {
             localIdentName: '[name]_[local]_[hash:base64:3]'
           }
         }, {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            plugins: [
+              require('autoprefixer')({
+                  "browsers": [
+                      "defaults",
+                      "not ie < 11",
+                      "last 2 versions",
+                      "> 1%",
+                      "iOS 7",
+                      "last 3 iOS versions"
+                  ]
+              })
+            ]
+          }
+        }, {
           loader: 'less-loader',
-          // exclude: /node_modules\/antd/,
           options: {
             sourceMap: true
           }

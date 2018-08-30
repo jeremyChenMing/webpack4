@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import l from './IndexPage.less'
 import Main from '../components/layout/MainLayout'
+import Hello from '../components/bus/Hello'
+import MainCom from '../components/bus/Main'
 import { Table, Divider, Tag } from 'antd';
 
 
@@ -66,6 +68,8 @@ class Products extends React.Component {
     return (
       <Main location={this.props.location}>
         <Table columns={columns} dataSource={data} />
+        <Hello name={'123'} />
+        <MainCom />
       </Main>
     );
   }

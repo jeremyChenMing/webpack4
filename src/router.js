@@ -1,10 +1,6 @@
 import React from 'react';
 import { hot } from 'react-hot-loader'
-
 import {HashRouter as Router, Route, Switch } from 'react-router-dom'
-
-import Index from './components/main.js'
-import Hello from './components/hello.js'
 
 import IndexPage from './routes/IndexPage'
 import products from './routes/products'

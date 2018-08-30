@@ -27,7 +27,7 @@ const obj = merge(common, {
       })
     ],
     splitChunks: {
-      chunks: 'initial', //默认all initial初始块 async 按需加载块
+      chunks: 'all', //默认all initial初始块 async 按需加载块
       minSize: 30000, //压缩前最小模块大小
       minChunks: 1, // 表示被引用次数
       maxAsyncRequests: 5, // 最大按需加载次数

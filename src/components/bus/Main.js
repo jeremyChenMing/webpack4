@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'antd'
 import cx from 'classnames'
-import l from './index.less'
+import l from './Index.less'
 // import '../style.css'
 import { connect } from 'react-redux'
-import { plus, reduce } from '../actions/todo'
+import { plus, reduce } from '../../actions/todo'
 
 
 class Main extends React.Component {
@@ -24,7 +24,7 @@ class Main extends React.Component {
         <div className={cx(l.box)}>
           klkalkd！！！
         </div>
-        <p className={cx(l.name)}>hello jeremy</p>
+        <p className={cx(l.name)}>hello jeremy!!!!=-----23-</p>
         <img src="/static/images/produce.png" alt=""/>
         <Button onClick={this.handle} type="primary">按钮{this.props.todos.value}</Button>
       </div>
