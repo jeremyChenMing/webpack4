@@ -3,10 +3,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const nodeEnv = process.env.NODE_ENV || 'development';
-const isPro = nodeEnv === 'production';
+// const nodeEnv = process.env.NODE_ENV || 'development';
+// const isPro = nodeEnv === 'production';
 
-console.log(path.resolve(__dirname, '../node_modules'), '=====')
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.js'), //path.resolve(__dirname, '../dist')
@@ -54,14 +54,14 @@ module.exports = {
             sourceMap: true,
             plugins: [
               require('autoprefixer')({
-                  "browsers": [
-                      "defaults",
-                      "not ie < 11",
-                      "last 2 versions",
-                      "> 1%",
-                      "iOS 7",
-                      "last 3 iOS versions"
-                  ]
+                "browsers": [
+                  "defaults",
+                  "not ie < 11",
+                  "last 2 versions",
+                  "> 1%",
+                  "iOS 7",
+                  "last 3 iOS versions"
+                ]
               })
             ]
           }
@@ -89,9 +89,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'webpack4',
       template: path.resolve(__dirname, '../index.html') 
-    }),
-    new webpack.DefinePlugin({
-      "__dev__": JSON.stringify(isPro) 
     }),
     new CopyWebpackPlugin([
       {

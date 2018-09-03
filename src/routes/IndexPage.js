@@ -28,7 +28,7 @@ class IndexPage extends React.Component {
         </Carousel>
         <Hello name={'123'} />
         <MainCom />
-        123
+123444411111111
       </Main>
     );
   }

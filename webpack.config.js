@@ -38,6 +38,43 @@ module.exports = {
         ]
       },
       {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'style-loader',
+          options: {}
+        }, {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
+            modules: true,
+            localIdentName: '[name]_[local]_[hash:base64:3]'
+          }
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            plugins: [
+              require('autoprefixer')({
+                "browsers": [
+                  "defaults",
+                  "not ie < 11",
+                  "last 2 versions",
+                  "> 1%",
+                  "iOS 7",
+                  "last 3 iOS versions"
+                ]
+              })
+            ]
+          }
+        }, {
+          loader: 'less-loader',
+          options: {
+            sourceMap: true
+          }
+        }]
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           'file-loader'

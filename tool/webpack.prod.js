@@ -50,7 +50,13 @@ const obj = merge(common, {
   plugins: [
     new CleanWebpackPlugin(['dist'], {
       root: path.resolve(__dirname, '../') 
-    })
+    }),
+    new webpack.DefinePlugin({
+      "process.env": { 
+         NODE_ENV: JSON.stringify("production") 
+       },
+      "__dev__": JSON.stringify(true) 
+    }),
   ]
 })
 

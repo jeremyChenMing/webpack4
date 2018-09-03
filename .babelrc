@@ -2,11 +2,17 @@
   "presets": ["env", "react", "stage-2"],
   "env": {
     "development": {
-
+      "plugins": [
+        "react-hot-loader/babel",
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": 'css' }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": 'css' }]
+      ]
     }
-  },
-  "plugins": [
-    "react-hot-loader/babel",
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": 'css' }] // `style: true` 会加载 less 文件
-  ]
+  }
 }
