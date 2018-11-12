@@ -4,6 +4,7 @@
     "development": {
       "plugins": [
         "react-hot-loader/babel",
+        "transform-decorators-legacy",
         "transform-runtime",
         ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": 'css' }]
       ]
@@ -11,6 +12,7 @@
     "production": {
       "plugins": [
         "transform-runtime",
+        "transform-decorators-legacy",
         ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": 'css' }]
       ]
     }

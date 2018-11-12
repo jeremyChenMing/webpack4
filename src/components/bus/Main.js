@@ -6,9 +6,15 @@ import l from './Index.less'
 // import '../style.css'
 import { connect } from 'react-redux'
 import { plus, reduce } from '../../actions/todo'
+import { form } from 'antd'
 
 
-class Main extends React.Component {
+// @connect(({todos}) => ({
+//   todos
+// }))
+@connect(stateFun)
+@form.create()
+export default class Main extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -26,16 +32,16 @@ class Main extends React.Component {
         </div>
         <p className={cx(l.name)}>hello jeremy!!!!=-----23-</p>
         <img src="/static/images/produce.png" alt=""/>
-        <Button onClick={this.handle} type="primary">按钮{this.props.todos.value}</Button>
+        <Button onClick={this.handle} type="primary">按钮</Button>
       </div>
     );
   }
 }
-const mapState = state => {
+function stateFun(state) {
   const { todos } = state;
   return {
     todos
   }
 }
 
-export default connect(mapState)(Main)
+// export default connect(mapState)(Main)
